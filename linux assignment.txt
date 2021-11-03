@@ -1,0 +1,123 @@
+DAY 1:
+slide no 41:
+1:mkdir test (in home dir)
+2:cat > employeelist
+ :cat > skillset
+3:mkdir test2 (in home dir)
+ -symbolic link : ln -s ../skillset skillset2
+ -hardlink  : ln ../skillset skillset2
+  -d/w symbolic link and hard link
+   1:symbolic link:symbolic link mainly used for shortcut purpose
+   2:if source file is modified , it will be effected to thr target file 
+   3:if target file is deleted , it will not be effected to the source file
+   hard link:
+   1:inode values are same in all hard link files
+   2:hard link can be used for backup purpose
+   3:we cant find what is source file and what is traget file
+4:chmod 664 <filename>
+user2@TrainingServer:/home/user13/test$ cat >> skillset
+bash: skillset: Permission denied
+5: user2@TrainingServer:/home/user13/test$ cat >> skillset (accessed succesfully)
+6:chmod 662 filename
+7:chmod 775 filename
+8:chgrp user3 employeelist (operation not permitted to changing the group)
+9:chown user5 employeelist (operation not permitted to changing the group)
+10:wc employees 
+........................................................................................
+slide no 47:
+1:cat > file1
+2:cat >> file1
+ hi 
+ this is pavan 
+3:cat > file2
+hi 
+this is pavan 
+from chagallu,west gd
+4 cat file1,cat file2
+5:cat file1 file2
+6:cat file1 file2 >file3
+7:cat file1 file2 file3 file4 file5 
+output : all files output will be combined
+8:in above command there is no "errors"
+9:cat file1 file2 file3 file4 file5 > file10 (no errors in the file)
+10:cp file1 file6
+.......................................................................................
+slide no 55:
+1:head -25 file1 | tail +10
+2:head -10 file01 | tail +10
+3:find . -type f -newermt "10 minutes"
+4:ls -lSr
+5:wc -l file1
+6: find test -type f -mtime +3
+........................................................................................
+slide no 61:
+1:cat file1 | grep A
+2:cat file1 | grep ^the
+3:cat file1 | grep [.]
+4:cat file1 | grep [^.abc]
+5:cat file1 | grep "def\|deef\|deeef"
+6:cat file1 |grep -v '^[0-9]'
+7:cat file1 | grep -n "^$" 
+8:ls -d 
+..........................................................................................
+slide no 63:
+1:ls
+2:ls | sort -r
+3:ls -li
+4:ls -lr | sort -k 3
+5:ls -las>sortedfile
+..........................................................................................
+slide no 66:
+1:echo SONATA | tr [:UPPER:] [:LOWER:] (sonata)
+2:sed -i 's/^[0-9].*$//g' file1
+3:cat file1 | sed 's/ //g'
+5:wc file1
+6:grep -o -i mauris file1 | wc -l
+.........................................................................................
+slide no 94:
+1:echo "Header" > newfile
+2:sed '2d' file1, u for undo 
+5:/c 
+7:3cc and type i go to the end of the file and type p for print
+8:3dd
+9:2u
+10: :wq (for save) "bc_v2"
+..........................................................................................
+slide no 117:
+1:sleep 100& 
+ps -l (log off)(log in)
+ps -l (to check run or not)
+2:nohup sleep 100&
+ps -l (log off) ( log in)
+ps -l (to check run or not)
+3:sleep 5s
+ then print [echo "hello"] 
+...........................................................................................
+slide no 119:
+1:echo "hello" | at + 3 minutes 
+	date
+	ps -el
+2:echo "happy birthday" | at now +1 day
+...........................................................................................
+slide no 121:
+1: corntab is used to schedule the job
+2:sleep 100& is used to schedule the job after 100 seconds
+3:crontab -r is used to remove the scheduled job
+4:at now +5 minutes is used to schedule the job after 5 min
+5:crontab -l to check the previous scheduled jobs
+6:at -l to check the scheduled job
+7:at -r [job_id] the remove the job related to job_id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
